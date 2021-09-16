@@ -33,9 +33,9 @@ def export_users_csv(request):
     response['Content-Disposition'] = 'attachment; filename="users.csv"'
 
     writer = csv.writer(response)
-    writer.writerow(['emp_id', 'firstname', 'lastname', 'email', 'profession'])
+    writer.writerow(['id', 'firstname', 'lastname', 'email', 'profession','phone_no'])
 
-    users = Emloyee.objects.all().values_list('emp_id', 'firstname', 'lastname', 'email', 'profession')
+    users = Emloyee.objects.all().values_list('id', 'firstname', 'lastname', 'email', 'profession','phone_no')
     for user in users:
         writer.writerow(user)
 
